@@ -1,26 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+export function App(){
+    return (
+        <div>
+            <h1>forum</h1>
+            <p>some desc</p>
+            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.sheba.pl%2Fblog%2Fzywienie%2Fco-moze-jesc-kot-produkty-ktore-smialo-mozesz-wcielic-do-jego-diety&psig=AOvVaw29zDgMn0wvaAHnli1FvVw3&ust=1732168224742000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCM79Ob6okDFQAAAAAdAAAAABAJ" alt="Forum placeholder"/>
+        </div>
+    );
+};
