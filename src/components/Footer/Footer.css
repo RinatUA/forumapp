@@ -1,0 +1,17 @@
+footer{
+    background-color: #505FE9;
+    height: 100px;
+    display: flex;
+    gap: 10px;
+}
+
+footer button{
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #E0E3FD;
+}
+
+footer button:hover{
+    background-color: #959DE3;
+}

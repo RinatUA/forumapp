@@ -1,4 +1,5 @@
 import {Post} from '../Post/Post';
+import "./PostList.css"
 
 interface IPostData {
     id: number;
@@ -34,12 +35,13 @@ const posts = [
 
 export function PostList(props: IPostData) {
     return (
-        <div style={{ textAlign: 'center', marginBottom: '20px' , backgroundColor: "#9CA6FC"}}>
-            <div>
-                <img src=""alt="CatRum Logo" style={{ borderRadius: '50%' }}/>
+        <div id='PostList'>
+            <div id = 'logo'>
+                <img src="https://board.mur.tv/uploads/images/listings/ql/1/n93j5.jpg" alt="CatRum Logo"/>
+                <h1>CatRum</h1>
                 <h2>Forum about cats</h2>
             </div>
-                <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
+                <div id = "posts" style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
                 {posts.map((post) => {
                     return (
                         <Post

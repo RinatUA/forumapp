@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+}
+
+header{
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px;
+    gap: 10px;
+    background-color: #505FE9;
+    height: 40px;
+}
+
+header button{
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #E0E3FD;
+}
+
+header button:hover{
+    background-color: #959DE3;
+}

@@ -1,0 +1,17 @@
+.post{
+    background-color: #9CA6FC;
+    padding: 30px;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+button{
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #E0E3FD;
+}
+
+button:hover{
+    background-color: #959DE3;
+}
