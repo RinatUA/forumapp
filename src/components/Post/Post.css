@@ -3,6 +3,11 @@
     padding: 30px;
     gap: 10px;
     border-radius: 10px;
+    width: 300px;
+    height: 277px;
+}
+.post:hover{
+    background-color: #D1D5FC;
 }
 
 button{

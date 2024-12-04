@@ -10,7 +10,8 @@
 
 #posts{
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center;
+    padding: 140px;
+    gap: 10px;
 }
 

@@ -8,7 +8,7 @@ export function App(){
         <div>
             <Layout>
                 <Header></Header>
-                <PostList id={0} title={''} description={''} image={''} author={''}></PostList>
+                <PostList></PostList>
                 <Footer></Footer>
             </Layout>
         </div>
