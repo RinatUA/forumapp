@@ -1,14 +1,6 @@
 import {Post} from '../Post/Post';
 import "./PostList.css"
 
-interface IPostData {
-    id: number;
-    title: string;
-    description: string;
-    image: string;
-    author: string;
-}
-
 const posts = [
     {
         id: 1,
@@ -33,7 +25,7 @@ const posts = [
     },
 ];
 
-export function PostList(props: IPostData) {
+export function PostList() {
     return (
         <div id='PostList'>
             <div id = 'logo'>
@@ -41,7 +33,7 @@ export function PostList(props: IPostData) {
                 <h1>CatRum</h1>
                 <h2>Forum about cats</h2>
             </div>
-                <div id = "posts" style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
+                <div id = "posts">
                 {posts.map((post) => {
                     return (
                         <Post
