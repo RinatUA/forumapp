@@ -1,4 +1,4 @@
-import {Post} from './Post';
+import {Post} from '../Post/Post';
 
 interface IPostData {
     id: number;
@@ -34,17 +34,23 @@ const posts = [
 
 export function PostList(props: IPostData) {
     return (
-        <div>
-            {posts.map((post) => {
-                return (
-                    <Post
-                        key={post.id}
-                        title={post.title}
-                        description={post.description}
-                        image={post.image}
-                        author={post.author}></Post>
-                    );
-                })}
+        <div style={{ textAlign: 'center', marginBottom: '20px' , backgroundColor: "#9CA6FC"}}>
+            <div>
+                <img src=""alt="CatRum Logo" style={{ borderRadius: '50%' }}/>
+                <h2>Forum about cats</h2>
+            </div>
+                <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
+                {posts.map((post) => {
+                    return (
+                        <Post
+                            key={post.id}
+                            title={post.title}
+                            description={post.description}
+                            image={post.image}
+                            author={post.author}></Post>
+                        );
+                    })}
+                </div>
             </div>
         );
     }
