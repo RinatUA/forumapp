@@ -3,8 +3,9 @@
     padding: 30px;
     gap: 10px;
     border-radius: 10px;
-    width: 300px;
-    height: 277px;
+    width: auto;
+    height: auto;
+    /*по-моєму авто набагато краще ніж якийсь певний розмір 🤔*/
 }
 .post:hover{
     background-color: #D1D5FC;
@@ -20,3 +21,4 @@ button{
 button:hover{
     background-color: #959DE3;
 }
+
