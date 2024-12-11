@@ -1,11 +1,18 @@
 import "./Header.css"
+import { Link } from "react-router-dom";
 
 export function Header(){
     return (
         <header>
             <h1>CatRum</h1>
-            <button>Post</button>
+            <Link to={"/"}>
+            <button>Main</button>
+            </Link>
+
+            <Link to={"/PostList"}>
             <button>PostList</button>
+            </Link>
+
             <input type="text" placeholder="Search..."/>
         </header>
     )

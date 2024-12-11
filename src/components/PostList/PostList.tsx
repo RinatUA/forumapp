@@ -75,6 +75,15 @@ export function PostList() {
         }
     }, [selectedCategory])
 
+    useEffect(()=>{
+        async function getPosts(){
+            const response = await fetch('https://dev.to/api/articles')
+            const posts = await response.json()
+            setFilteredPosts(posts)
+        }
+        getPosts()
+    },[])
+
     return (
         <div id='PostList'>
             <select id='categoryChange' onChange={(event)=>{setSelectedCategory(event.target.value)}}>
