@@ -16,8 +16,8 @@ export function PostPage(){
             const data = await response.json();
             setPost({
               title: data.title,
-              cover_image: data.cover_image || '',
-              tags: data.tag_list || [],
+              cover_image: data.cover_image,
+              tags: data.tag_list,
               body_markdown: data.body_markdown
             });
 
@@ -28,10 +28,10 @@ export function PostPage(){
         }
       }, [params.id]);
     
-    return <div id='post-page'>
-        <h1>пост№{params.id}</h1>
+    return <div className='post-page'>
+        <h1>пост №{params.id}</h1>
         <h2>{post.title}</h2>
-        <img src={post.cover_image} alt={post.title} />
+        <img src={post.cover_image} alt={post.title} className='cover-image'/>
         <h2>Tags: {post.tags}</h2>
         <h2>{post.body_markdown}</h2>
     </div>

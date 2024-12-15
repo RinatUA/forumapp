@@ -1,6 +1,9 @@
-#post-page{
+.post-page{
     text-align: center;
     background-color: #828EFF;
     padding: 50px;
 }
 
+.cover-image{
+    border-radius: 10px;
+}
