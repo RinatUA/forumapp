@@ -101,7 +101,7 @@ export function PostList() {
             <div id = "posts">
                 {filteredPosts.map((post) => {                                               
                     return (
-                        <Post key={post.id} title={post.title} description={post.description} image={post.image} author={post.author}></Post>);
+                        <Post key={post.id} id = {post.id} title={post.title} description={post.description} image={post.image} author={post.author}></Post>);
                     })}
             </div>
         </div>

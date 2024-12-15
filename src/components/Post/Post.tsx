@@ -1,12 +1,15 @@
 import { useState } from "react";
 import "./Post.css"
+import { Link } from "react-router-dom"
 
 interface IPostProps {
+    id: number;
     title: string;
     description: string;
     image: string;
     author: string;
 }
+
 export function Post(props: IPostProps) {
     const [likes, setLikes] = useState(0);
     const [liked, setLiked] = useState(false);
@@ -29,6 +32,8 @@ export function Post(props: IPostProps) {
                     disabled={liked}>
                     {liked ? 'Liked' : 'Like'}
                 </button>
+                
+                <Link to={`/post/${props.id}`}><button>перейти</button></Link>
             </div>
         </div>
     );
