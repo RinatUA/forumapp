@@ -1,4 +1,5 @@
-import {Post} from '../Post/Post';
+import { usePosts } from '../../hooks/usePosts';
+import {Post} from './PostCard/Post';
 import "./PostList.css"
 import { useEffect, useState } from "react"
 
@@ -62,6 +63,8 @@ const posts = [
 ];
 
 export function PostList() {
+    const {posts} = usePosts()
+
     const [filteredPosts, setFilteredPosts] = useState(posts)
     const [selectedCategory, setSelectedCategory] = useState('All')
 
