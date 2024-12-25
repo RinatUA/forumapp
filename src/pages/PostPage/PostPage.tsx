@@ -23,6 +23,7 @@ export function PostPage(){
         }
         getAllPosts()
     }, [params.id])
+    
     return (
     <div className='post-page'>
         {isLoading ? (
