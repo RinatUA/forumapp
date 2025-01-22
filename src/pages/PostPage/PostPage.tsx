@@ -13,6 +13,13 @@ export function PostPage(){
     const params = useParams()
     const [isLoading, setIsLoading] = useState(true)
         
+    const [likes, setLikes] = useState(0);
+    const [liked, setLiked] = useState(false);
+    const handleLike = () => {
+        setLikes((prevLikes) => prevLikes + 1);
+        setLiked(true);
+    };
+
     useEffect(() => {
         async function getAllPosts() {
             setIsLoading(true)
@@ -37,6 +44,11 @@ export function PostPage(){
                     <img src={post?.cover_image} alt={post?.title} className='cover-image'/>
                     <h2>Tags: {post?.tags}</h2>
                     <h2>{post?.body_markdown}</h2>
+                    <button 
+                        onClick={handleLike} 
+                        disabled={liked}>
+                        {liked ? 'Liked' : 'Like'}
+                    </button>
                 </div>
             )}
     </div>
