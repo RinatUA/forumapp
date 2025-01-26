@@ -3,19 +3,38 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { PostPage } from "../pages/PostPage/PostPage"
 import { PostListPage } from "../pages/PostListPage/PostListPage";
 import { MainPage } from "../pages/MainPage/MainPage"
-import { createContext } from "react"
+import { createContext, useState } from "react";
+import { IPost } from "../hooks/usePosts";  
 
-interface ILikedPosts{
-    title: string
+export interface IPostProps {
+    id: number;
+    title: string;
+    content: string;
+    author: string;
+    date: string;
 }
 
-const initialValue: ILikedPosts[] = []
-const likedContext = createContext< ILikedPosts[] >(initialValue)
+interface IPostContext {
+    likePosts: IPost[]; 
+    toggleLike: (post: IPost) => void; 
+}
+
+const initialValue: IPostContext = {
+    likePosts: [],
+    toggleLike: (post: IPost) => {}
+}
+const likedContext = createContext<IPostContext>(initialValue)
 
 export function App(){
+    const [likePosts, setLikePosts] = useState<IPost[]>([])
+
+  function addLikePost(post: IPost){
+      let arr = [...likePosts, post]
+      setLikePosts(arr)
+  }
     return (
         <div>
-            <likedContext.Provider value={[{title:'пупупупу...'}]}>
+            <likedContext.Provider value={{likePosts: likePosts, toggleLike: addLikePost}}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout></Layout>}>
