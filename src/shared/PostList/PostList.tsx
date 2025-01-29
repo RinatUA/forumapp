@@ -3,64 +3,64 @@ import {Post} from './PostCard/Post';
 import "./PostList.css"
 import { useEffect, useState } from "react"
 
-const posts = [
-    {
-        id: 1,
-        title: 'шукаємо кота',
-        description: 'шукаємо кота такий як на фото',
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
-        author: 'John Doe',
-        category: 'Cats',
-    },
-    {
-        id: 2,
-        title: 'знайшли кота',
-        description: 'знайшли кота схожого як на цьому фото',
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
-        author: 'Jane Smith',
-        category: 'Cats',
-    },
-    {
-        id: 3,
-        title: 'куплю кота',
-        description: 'куплю кота такого як на цьому фото',
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
-        author: 'Alice Johnson',
-        category: 'Cats',
-    },
-    {
-        id: 4,
-        title: 'навчу пайтону за тиждень',
-        description: 'і ви будете заробляти більше ніж я',
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
-        author: 'John Doe',
-        category: 'Programming'
-    },
-    {
-        id: 5,
-        title: 'кіт програмує на пітоні!',
-        description: 'запишіться на мої курси і за тиждень ви вивчите пайтон',
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
-        author: 'Jane Smith',
-        category: 'Programming',
-    },
-    {
-        id: 6,
-        title: 'продам гараж',
-        description: 'продам гараж',
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
-        author: 'Alice Johnson',
-        category: 'Selling',
-    },
-    {
-        id: 7,
-        title: 'якась крута ціпляюча назва',
-        description: 'ще один пост з категорією інше бо я не придумав що тут написати(',
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
-        author: 'Alice Johnson',
-        category: 'Other',
-    },
-];
+// const posts = [
+//     {
+//         id: 1,
+//         title: 'шукаємо кота',
+//         description: 'шукаємо кота такий як на фото',
+//         image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
+//         author: 'John Doe',
+//         category: 'Cats',
+//     },
+//     {
+//         id: 2,
+//         title: 'знайшли кота',
+//         description: 'знайшли кота схожого як на цьому фото',
+//         image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
+//         author: 'Jane Smith',
+//         category: 'Cats',
+//     },
+//     {
+//         id: 3,
+//         title: 'куплю кота',
+//         description: 'куплю кота такого як на цьому фото',
+//         image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
+//         author: 'Alice Johnson',
+//         category: 'Cats',
+//     },
+//     {
+//         id: 4,
+//         title: 'навчу пайтону за тиждень',
+//         description: 'і ви будете заробляти більше ніж я',
+//         image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
+//         author: 'John Doe',
+//         category: 'Programming'
+//     },
+//     {
+//         id: 5,
+//         title: 'кіт програмує на пітоні!',
+//         description: 'запишіться на мої курси і за тиждень ви вивчите пайтон',
+//         image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
+//         author: 'Jane Smith',
+//         category: 'Programming',
+//     },
+//     {
+//         id: 6,
+//         title: 'продам гараж',
+//         description: 'продам гараж',
+//         image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
+//         author: 'Alice Johnson',
+//         category: 'Selling',
+//     },
+//     {
+//         id: 7,
+//         title: 'якась крута ціпляюча назва',
+//         description: 'ще один пост з категорією інше бо я не придумав що тут написати(',
+//         image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fukrainian%2Fnews-59415566&psig=AOvVaw3WfybypIQTVlYtkMVCwKzc&ust=1732517982222000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX3suy9IkDFQAAAAAdAAAAABAE',
+//         author: 'Alice Johnson',
+//         category: 'Other',
+//     },
+// ];
 
 export function PostList() {
     const {posts} = usePosts()
@@ -104,7 +104,14 @@ export function PostList() {
             <div id = "posts">
                 {filteredPosts.map((post) => {                                               
                     return (
-                        <Post key={post.id} id = {post.id} title={post.title} description={post.description} image={post.image} author={post.author}></Post>);
+                        <Post key={post.id} 
+                        id = {post.id} 
+                        title={post.title} 
+                        description={post.description} 
+                        image={post.image} 
+                        author={post.author} 
+                        category=''
+                        ></Post>);
                     })}
             </div>
         </div>

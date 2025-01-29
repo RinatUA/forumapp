@@ -8,8 +8,8 @@ export interface IPost{
     author: string,
     category: string,
     cover_image?: any,
-    tags: string,
-    body_markdown: string,
+    tags?: string,
+    body_markdown?: string,
 }
 
 export function usePosts(){

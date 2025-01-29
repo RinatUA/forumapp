@@ -9,7 +9,7 @@ export function Header(){
             <button>Main</button>
             </Link>
 
-            <Link to={"/PostList"}>
+            <Link to={"/posts"}>
             <button>PostList</button>
             </Link>
 

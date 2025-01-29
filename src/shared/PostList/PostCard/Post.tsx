@@ -1,23 +1,28 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Post.css"
 import { Link } from "react-router-dom"
+import { likedContext } from "../../App"
+import { IPost } from "../../../hooks/usePosts";
 
 interface IPostProps {
     id: number;
     title: string;
-    description: string;
-    image: string;
-    author: string;
+    social_image: string;
+    description?: string;
+    tags?: string;
+    body_markdown?: string;
 }
 
-export function Post(props: IPostProps) {
+export function Post(props: IPost) {
+    const {likePosts, toggleLike} = useContext(likedContext)
+    const isPostLiked = likePosts.some((post) => post.id === props.id);
     const [likes, setLikes] = useState(0);
     const [liked, setLiked] = useState(false);
 
     const handleLike = () => {
-        setLikes((prevLikes) => prevLikes + 1);
-        setLiked(true);
+        toggleLike(props); 
     };
+
 
     return (
         <div className = "post">
@@ -28,12 +33,10 @@ export function Post(props: IPostProps) {
             <div>
                 <p>Likes: {likes}</p>
                 <button 
-                    onClick={handleLike} 
-                    disabled={liked}>
-                    {liked ? 'Liked' : 'Like'}
+                    onClick={handleLike}>
+                    {isPostLiked ? 'Liked' : 'Like'}
                 </button>
-                
-                <Link to={`/post/${props.id}`}><button>перейти</button></Link>
+                <Link to={`/post/${props.id}`}><button>перейти</button></Link>                
             </div>
         </div>
     );

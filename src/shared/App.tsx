@@ -17,29 +17,57 @@ export interface IPostProps {
 interface IPostContext {
     likePosts: IPost[]; 
     toggleLike: (post: IPost) => void; 
+    removePostLike: (id: number) => void; 
+    isPostLiked: (id:number) => boolean;
+
 }
 
 const initialValue: IPostContext = {
     likePosts: [],
-    toggleLike: (post: IPost) => {}
+    toggleLike: (post: IPost) => {},
+    removePostLike: () => {},
+    isPostLiked: (id: number) => false,
 }
-const likedContext = createContext<IPostContext>(initialValue)
+export const likedContext = createContext<IPostContext>(initialValue)
 
 export function App(){
     const [likePosts, setLikePosts] = useState<IPost[]>([])
 
-  function addLikePost(post: IPost){
-      let arr = [...likePosts, post]
-      setLikePosts(arr)
-  }
+    function addLikePost(post: IPost){
+        let arr = [...likePosts, post]
+        setLikePosts(arr)
+    }
+
+    function removePostLike(id: number){
+        let arr = likePosts.filter((post) => {
+            return post.id !== id
+        })
+        setLikePosts(arr)
+    }
+    
+    function isPostLiked(id: number){
+        for (let post of likePosts){
+            if (post.id === id){
+                return true;
+            }
+        }
+        return false;
+    }
+
     return (
         <div>
-            <likedContext.Provider value={{likePosts: likePosts, toggleLike: addLikePost}}>
+            <likedContext.Provider value={{
+                likePosts: likePosts, 
+                toggleLike: addLikePost,
+                removePostLike: removePostLike,
+                isPostLiked: isPostLiked
+                }}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout></Layout>}>
                         <Route path="/" element={<MainPage></MainPage>}></Route>
                         <Route path="/posts" element={<PostListPage></PostListPage>}></Route>
+                        <Route path="/post/:id" element={<PostPage></PostPage>}></Route>
                         <Route path="/post/:id" element={<PostPage></PostPage>}></Route>
                     </Route>
                 </Routes>
