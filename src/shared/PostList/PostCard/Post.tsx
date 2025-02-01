@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import "./Post.css"
 import { Link } from "react-router-dom"
-import { likedContext } from "../../App"
 import { IPost } from "../../../hooks/usePosts";
+import { likedContext } from "../../../context/postContext";
 
 interface IPostProps {
     id: number;
