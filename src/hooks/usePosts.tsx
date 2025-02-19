@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 export interface IPost{
     id: number,
-    title: string,
+    name: string,
     description: string,
     image: string,
     author: string,

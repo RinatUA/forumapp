@@ -106,7 +106,7 @@ export function PostList() {
                     return (
                         <Post key={post.id} 
                         id = {post.id} 
-                        title={post.title} 
+                        name={post.name} 
                         description={post.description} 
                         image={post.image} 
                         author={post.author} 

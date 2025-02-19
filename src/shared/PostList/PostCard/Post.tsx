@@ -26,10 +26,10 @@ export function Post(props: IPost) {
 
     return (
         <div className = "post">
-            <h1>{props.title}</h1>
+            <h1>{props.name}</h1>
             <p>{props.description}</p>
             <h3>Author: {props.author}</h3>
-            <img src={props.image} alt={props.title} />
+            <img src={props.image} alt={props.name} />
             <div>
                 <p>Likes: {likes}</p>
                 <button 
