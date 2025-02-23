@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
-import {IPost} from "../hooks/usePosts"
+import { IPost } from "../shared/types/types";
 import { useContext } from "react";
 
 interface IPostContext {

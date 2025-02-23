@@ -1,16 +1,5 @@
 import { useEffect, useState } from "react"
-
-export interface IPost{
-    id: number,
-    name: string,
-    description: string,
-    image: string,
-    author: string,
-    category: string,
-    cover_image?: any,
-    tags?: string,
-    body_markdown?: string,
-}
+import { IPost } from "../shared/types/types";
 
 export function usePosts(){
     const [posts, setPosts] = useState<IPost[]>([])

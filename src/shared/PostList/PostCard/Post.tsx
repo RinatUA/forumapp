@@ -3,15 +3,7 @@ import "./Post.css"
 import { Link } from "react-router-dom"
 import { IPost } from "../../../hooks/usePosts";
 import { likedContext } from "../../../context/postContext";
-
-interface IPostProps {
-    id: number;
-    title: string;
-    social_image: string;
-    description?: string;
-    tags?: string;
-    body_markdown?: string;
-}
+import { IPostProps } from "../../types/types"
 
 export function Post(props: IPost) {
     const {likePosts, toggleLike} = useContext(likedContext)
