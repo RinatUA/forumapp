@@ -1,9 +1,11 @@
+// Импорт не используется, нужно убрать
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+// Импорт не используется, нужно убрать
 import { ISuccess, IError, IUser } from "../../shared/types/types";
 import "./RegisterPage.css";
-
+// Лучше назвать IRegisterForm
 interface IForm {
     username: string
     email: string
@@ -22,6 +24,8 @@ export function RegisterPage() {
     return(
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
+                {/* Login? */}
+                {/* Нету поля username, для регистрации оно уже нужно */}
                 <h3>Login</h3>
                 <input type="text" {...register('email', {
                     required: {value: true, message: 'Field is required'}, 

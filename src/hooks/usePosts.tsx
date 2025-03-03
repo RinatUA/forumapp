@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { IPost } from "../shared/types/types";
-
+// тоже самое что и с usePostById
 export function usePosts(){
     const [posts, setPosts] = useState<IPost[]>([])
 

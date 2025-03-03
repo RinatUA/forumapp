@@ -1,4 +1,5 @@
 import { useContext } from "react";
+// Использовать нужно хук контекста
 import { likedContext } from "../../context/postContext";
 
 export function LikedPage(){

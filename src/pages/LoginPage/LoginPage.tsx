@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
 
+// Для логина нужно написать собственный никнейм?
+// Лучше назвать ILoginForm
 interface IForm {
     username: string;
     email: string;
@@ -9,6 +11,7 @@ interface IForm {
 }
 
 export function LoginPage(){
+    // не обязательно так делать, можно просто register
     const {register: register, handleSubmit, formState} = useForm <IForm>({
         mode: 'onSubmit'
     })

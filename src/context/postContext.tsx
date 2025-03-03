@@ -15,7 +15,7 @@ const initialValue: IPostContext = {
     removePostLike: () => {},
     isPostLiked: (id: number) => false,
 }
-
+// нет смысла экспортировать, ниже есть хук
 export const likedContext = createContext<IPostContext>(initialValue)
 
 export function useLikedContext() {
@@ -23,6 +23,7 @@ export function useLikedContext() {
 }
 
 interface ILikeContextProviderProps{
+    // children лучше сделать не обязательными 
     children: ReactNode
 }
 

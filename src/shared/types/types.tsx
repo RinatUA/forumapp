@@ -1,3 +1,4 @@
+// Типизацию нужно поменять, с учетом того, что тебе приходит по твоей API
 export interface IPost{
     id: number,
     name: string,

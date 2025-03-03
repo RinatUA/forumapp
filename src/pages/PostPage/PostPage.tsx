@@ -3,6 +3,7 @@ import "./PostPage.css"
 import { useEffect, useState } from "react"
 
 export function PostPage(){
+    // Должен использовать хук
     const [post, setPost] = useState({
         id: 0,
         title: "",
@@ -12,14 +13,15 @@ export function PostPage(){
     })
     const params = useParams()
     const [isLoading, setIsLoading] = useState(true)
-        
+    // Лайкнутый пост должен добавлятся в контекст лайкнутых постов
+    // Использовать функции isPostLiked и  addLikePost
     const [likes, setLikes] = useState(0);
     const [liked, setLiked] = useState(false);
     const handleLike = () => {
         setLikes((prevLikes) => prevLikes + 1);
         setLiked(true);
     };
-
+    // Должен использовать хук
     useEffect(() => {
         async function getAllPosts() {
             setIsLoading(true)
@@ -33,6 +35,7 @@ export function PostPage(){
     
     return (
     <div className='post-page'>
+        {/* также обработку ошибок */}
         {isLoading ? (
             <div>
                 <h1>Loading</h1>

@@ -4,6 +4,7 @@ import "./PostList.css"
 import { useEffect, useState } from "react"
 
 export function PostList() {
+    // не забываем про обработку загрузки и ошибок 
     const {posts} = usePosts()
 
     const [filteredPosts, setFilteredPosts] = useState(posts)
@@ -17,8 +18,9 @@ export function PostList() {
                 return post.category === selectedCategory
             }))
         }
+        // в зависимости для useEffect лучше добавить posts, тк он используется в useEffect
     }, [selectedCategory])
-
+    // Здесь этого не должно быть, должен использоватся хук
     useEffect(()=>{
         async function getPosts(){
             const response = await fetch('https://dev.to/api/articles')
@@ -31,6 +33,7 @@ export function PostList() {
     return (
         <div id='PostList'>
             <select id='categoryChange' onChange={(event)=>{setSelectedCategory(event.target.value)}}>
+                {/* Все категории надо получать из Backend */}
                 <option className='categoryOption' value = 'All'>All</option>
                 <option className='categoryOption' value = 'Programming'>Programming</option>
                 <option className='categoryOption' value = 'Cats'>Cats</option>
