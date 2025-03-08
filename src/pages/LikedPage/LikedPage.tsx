@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { likedContext } from "../../context/postContext";
+import { useLikedContext } from "../../context/postContext";
 
 export function LikedPage(){
-    const {likePosts, removePostLike} = useContext(likedContext)
+    const {likePosts, removePostLike} = useLikedContext()
     return (
         <div>
             {likePosts.map(post =>{

@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 
-function useTitle() {
-  useEffect(() => {
-    document.title = 'My Page Title';
-  }, []);
-}
+export function useTitle(title: string){
+    useEffect(()=>{
+        document.title = title
+    }, [])
+    return {title: title}
+} 

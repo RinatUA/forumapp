@@ -2,18 +2,17 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
 
-interface IForm {
-    username: string;
+interface ILoginForm {
     email: string;
     password: string;
 }
 
 export function LoginPage(){
-    const {register: register, handleSubmit, formState} = useForm <IForm>({
+    const {register, handleSubmit, formState} = useForm <ILoginForm>({
         mode: 'onSubmit'
     })
     
-    function onSubmit(data: IForm){
+    function onSubmit(data: ILoginForm){
         console.log(data)
     }
 
@@ -21,14 +20,6 @@ export function LoginPage(){
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <h3>Login</h3>
-
-                <input className="inputTextForm" placeholder="Username" type="text" {...register("username", {
-                    required: { value: true, message: "Username is required" },
-                    minLength: { value: 3, message: "This field should be more than 3 symbols" },
-                    maxLength: { value: 20, message: "This field should be less than 20 symbols" },
-                })} />
-                <p>{formState.errors.username?.message}</p>
-
                 <input type="text" {...register('email', {
                     required: {value: true, message: 'Field is required'}, 
                     minLength: {value: 7, message: 'This field should be more than 7 symbols'}, 

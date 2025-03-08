@@ -1,14 +1,10 @@
-import { ReactNode } from "react"
 import { Header } from "../Header/Header"
 import { Main } from "../Main/Main"
 import { Footer } from "../Footer/Footer"
 import { Outlet } from "react-router-dom"
+import "./Layout.css"
 
-interface ILayoutProps {
-    children?: ReactNode
-}
-
-export function Layout(props: ILayoutProps){
+export function Layout(){
     return (
         <div className="layout">
             <Header></Header>

@@ -3,7 +3,7 @@ import { IPost } from '../shared/types/types'
 
 export function usePostById(id: number) {
     const [post, setPost] = useState<IPost>()
-
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         async function getPost() {
             const response = await fetch(`https://dev.to/api/articles/${id}`)
@@ -13,5 +13,5 @@ export function usePostById(id: number) {
         getPost()
     }, [id])
 
-    return { post: post }
+    return { post: post, isLoading }
 }

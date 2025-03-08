@@ -16,14 +16,14 @@ const initialValue: IPostContext = {
     isPostLiked: (id: number) => false,
 }
 
-export const likedContext = createContext<IPostContext>(initialValue)
+const likedContext = createContext<IPostContext>(initialValue)
 
 export function useLikedContext() {
     return useContext(likedContext)
 }
 
 interface ILikeContextProviderProps{
-    children: ReactNode
+    children?: ReactNode
 }
 
 export function PostContextProvider(props: ILikeContextProviderProps){

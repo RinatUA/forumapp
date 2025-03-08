@@ -1,5 +1,6 @@
 import { usePosts } from '../../hooks/usePosts';
-import {Post} from './PostCard/Post';
+import { useCategories } from '../../hooks/useTags';
+import { Post } from './PostCard/Post';
 import "./PostList.css"
 import { useEffect, useState } from "react"
 
@@ -8,7 +9,7 @@ export function PostList() {
 
     const [filteredPosts, setFilteredPosts] = useState(posts)
     const [selectedCategory, setSelectedCategory] = useState('All')
-
+    const { tags } = useCategories();
     useEffect(()=>{
         if(selectedCategory === 'All'){
             setFilteredPosts(posts)
@@ -19,29 +20,19 @@ export function PostList() {
         }
     }, [selectedCategory])
 
-    useEffect(()=>{
-        async function getPosts(){
-            const response = await fetch('https://dev.to/api/articles')
-            const posts = await response.json()
-            setFilteredPosts(posts)
-        }
-        getPosts()
-    },[])
+    usePosts()
 
     return (
         <div id='PostList'>
             <select id='categoryChange' onChange={(event)=>{setSelectedCategory(event.target.value)}}>
                 <option className='categoryOption' value = 'All'>All</option>
-                <option className='categoryOption' value = 'Programming'>Programming</option>
-                <option className='categoryOption' value = 'Cats'>Cats</option>
-                <option className='categoryOption' value = 'Selling'>Selling</option>
-                <option className='categoryOption' value = 'Other'>Other</option>
+                {tags.map((tag) => (
+                    <option key={tag.name} value={tag.name}>
+                        {tag.name}
+                    </option>
+                ))}
             </select>
-            {/* <div id = 'logo'>
-                <img src="https://board.mur.tv/uploads/images/listings/ql/1/n93j5.jpg" alt="CatRum Logo"/>
-                <h1>CatRum</h1>
-                <h2>Forum about cats</h2>
-            </div> */}
+
             <div id = "posts">
                 {filteredPosts.map((post) => {                                               
                     return (

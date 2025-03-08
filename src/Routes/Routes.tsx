@@ -15,7 +15,6 @@ export function AppRoutes(){
                     <Route path="/" element={<MainPage></MainPage>}></Route>
                     <Route path="/posts" element={<PostListPage></PostListPage>}></Route>
                     <Route path="/post/:id" element={<PostPage></PostPage>}></Route>
-                    <Route path="/post/:id" element={<PostPage></PostPage>}></Route>
                     <Route path="/liked" element ={<LikedPage></LikedPage>}></Route>
                     <Route path='/login' element={<LoginPage></LoginPage>}></Route>
                     <Route path='/register' element={<RegisterPage></RegisterPage>}></Route>
