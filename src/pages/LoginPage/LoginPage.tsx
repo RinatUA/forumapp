@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
+import { useUserContext } from "../../context/userContext"
 
 interface ILoginForm {
     email: string;
@@ -8,12 +9,14 @@ interface ILoginForm {
 }
 
 export function LoginPage(){
+    const {login} = useUserContext()
     const {register, handleSubmit, formState} = useForm <ILoginForm>({
         mode: 'onSubmit'
     })
     
     function onSubmit(data: ILoginForm){
         console.log(data)
+        login(data.email, data.password)
     }
 
     return(

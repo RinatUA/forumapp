@@ -1,7 +1,8 @@
+import { useUserContext } from "../../context/userContext";
 import "./Header.css"
 import { Link } from "react-router-dom";
-
 export function Header(){
+    const {isAuthenticated} = useUserContext()
     return (
         <header>
             <h1>CatRum</h1>
@@ -14,6 +15,14 @@ export function Header(){
             </Link>
 
             <input type="text" placeholder="Search..."/>
+            {isAuthenticated() ? 
+            <Link to = {'/user'}>User Profile</Link>
+            :
+            <>
+                <Link to = {'/login'}>Login</Link>
+                <Link to = {'/register'}>Register</Link>
+            </>
+            }
         </header>
     )
 }

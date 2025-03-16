@@ -33,3 +33,5 @@ export interface ITag {
     name: string
     posts: IPost[]
 }
+
+export type Response<T> = IError | ISuccess<T>
